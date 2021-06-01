@@ -1,0 +1,64 @@
+name: bloc_getx_boilerplate
+description: BLoC with GetX boilerplate flutter
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  #Core
+  get: ^4.1.4
+  equatable: ^2.0.2
+  flutter_bloc: ^7.0.1
+
+  # Notification
+  flutter_local_notifications: ^6.0.0
+  firebase_messaging: ^10.0.0
+
+  #SignIn social
+  firebase_core: ^1.2.0
+  firebase_auth: ^1.2.0
+  google_sign_in: ^5.0.4
+  flutter_facebook_auth: ^3.4.0
+  sign_in_with_apple: ^3.0.0
+  flutter_twitter_login: ^1.1.0
+
+  #Network
+  dio: ^4.0.0
+  connectivity: ^3.0.6
+
+  rxdart: ^0.27.1
+  hive: ^2.0.4
+  path_provider: ^2.0.2
+  responsive_builder: ^0.4.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+
+  fonts:
+    - family: NunitoSans
+      fonts:
+        - asset: assets/fonts/NunitoSans-Black.ttf
+          weight: 900
+        - asset: assets/fonts/NunitoSans-Black.ttf
+          weight: 800
+        - asset: assets/fonts/NunitoSans-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/NunitoSans-Bold.ttf
+          weight: 600
+        - asset: assets/fonts/NunitoSans-Regular.ttf
+          weight: 500
+        - asset: assets/fonts/NunitoSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/NunitoSans-Light.ttf
+          weight: 300
+        - asset: assets/fonts/NunitoSans-Light.ttf
+          weight: 200
+        - asset: assets/fonts/NunitoSans-Light.ttf
+          weight: 100
