@@ -1,12 +1,12 @@
 import 'dart:developer';
 
-import 'package:bloc_getx_boilerplate/src/presentation/navigation/widgets/widget_loading.dart';
-import 'package:bloc_getx_boilerplate/src/presentation/navigation/widgets/widget_welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'bloc/bloc.dart';
 import '../presentation.dart';
+import 'widgets/widget_loading.dart';
+import 'widgets/widget_welcome.dart';
 
 export 'bloc/bloc.dart';
 

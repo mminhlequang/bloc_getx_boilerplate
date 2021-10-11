@@ -3,7 +3,7 @@ import '../utils/utils.dart';
 
 class AppThemes {
   static ThemeData get appTheme {
-    bool isDarkMode = AppPref.themeModel == "dark";
+    bool isDarkMode = AppPrefs.themeModel == "dark";
     return isDarkMode
         ? ThemeData.dark().copyWith()
         : ThemeData.light().copyWith(

@@ -1,9 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart' as Bloc;
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart' as bloc;
 import 'package:get/get.dart' as GetX;
+import 'package:get/get.dart';
 
 import 'src/presentation/presentation.dart';
 import 'src/bloc/bloc.dart';
@@ -15,14 +15,25 @@ import 'src/utils/utils.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  await SystemChrome.setEnabledSystemUIOverlays([]);
+  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
   await SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-  await AppPref.initListener();
-  initialBlocs();
-  Bloc.Bloc.observer = ThemeBloc();
+  await AppPrefs.initListener();
+  _initialBlocs();
+  bloc.Bloc.observer = ThemeBloc();
 
-  runApp(App());
+  runApp(const App());
+}
+
+void _initialBlocs() {
+  Get.put(
+    AuthBloc(),
+    permanent: true,
+  );
+  Get.put(
+    NavigationBloc(),
+    permanent: true,
+  );
 }
 
 class App extends StatefulWidget {
@@ -35,40 +46,34 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-        providers: [
-          BlocProvider<NavigationBloc>(
-            create: (BuildContext context) => GetX.Get.find<NavigationBloc>(),
-          ),
-        ],
-        child: GetX.GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          initialRoute: Routes.INITIAL,
-          theme: AppThemes.appTheme,
-          defaultTransition: GetX.Transition.fadeIn,
-          getPages: AppPages.pages,
-          locale: Locale('vi', 'VN'),
-          translationsKeys: AppTranslation.translations,
-        ));
+    return GetX.GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: Routes.INITIAL,
+      theme: AppThemes.appTheme,
+      defaultTransition: GetX.Transition.fadeIn,
+      getPages: AppPages.pages,
+      locale: Locale('vi', 'VN'),
+      translationsKeys: AppTranslation.translations,
+    );
   }
 }
 
-class ThemeBloc extends Bloc.BlocObserver {
+class ThemeBloc extends bloc.BlocObserver {
   @override
-  Future<void> onEvent(Bloc.Bloc bloc, Object? event) async {
+  Future<void> onEvent(bloc.Bloc bloc, Object? event) async {
     super.onEvent(bloc, event);
-    print('Event: $event');
+    print('onEvent: $event');
   }
 
   @override
-  void onTransition(Bloc.Bloc bloc, Bloc.Transition transition) {
+  void onTransition(bloc.Bloc bloc, bloc.Transition transition) {
     super.onTransition(bloc, transition);
-    print(transition);
+    print('onTransition: $transition');
   }
 
   @override
-  void onError(Bloc.BlocBase bloc, Object error, StackTrace stackTrace) {
-    print(error);
+  void onError(bloc.BlocBase bloc, Object error, StackTrace stackTrace) {
+    print('onError: $error');
     super.onError(bloc, error, stackTrace);
   }
 }

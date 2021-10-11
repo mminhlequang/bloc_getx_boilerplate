@@ -1,5 +1,5 @@
-import 'package:bloc_getx_boilerplate/src/constants/app_text_theme.dart';
 import 'package:flutter/material.dart';
+import '../../../constants/constants.dart';
 
 class WidgetWelcome extends StatelessWidget {
   const WidgetWelcome({Key? key}) : super(key: key);
@@ -9,7 +9,7 @@ class WidgetWelcome extends StatelessWidget {
     return Center(
       child: Text(
         'Welcome to boilerplate!',
-        style: STYLE_MEDIUM_BOLD,
+        style: AppTextStyles.normalBold,
       ),
     );
   }
