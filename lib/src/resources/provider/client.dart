@@ -56,7 +56,7 @@ class AppClients extends DioForNative {
   }
 
   _errorInterceptor(DioError dioError, ErrorInterceptorHandler handler) {
-    log("[ErrorInterceptor] ${dioError.response?.requestOptions.uri} ${dioError.type}\n${dioError.message ?? ''}");
+    log("[ErrorInterceptor] ${dioError.response?.requestOptions.uri} ${dioError.type}\n${dioError.message}");
     handler.next(dioError);
   }
 }
