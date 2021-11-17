@@ -25,7 +25,6 @@ dependencies:
   google_sign_in: ^5.2.1
   flutter_facebook_auth: ^3.5.6
   sign_in_with_apple: ^3.2.0
-  flutter_twitter_login: ^1.1.0
 
   #Network
   dio: ^4.0.3
