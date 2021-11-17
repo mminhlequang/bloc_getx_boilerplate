@@ -1,6 +1,6 @@
-import 'package:bloc_getx_boilerplate/src/utils/utils.dart';
 import 'package:flutter/material.dart';
 import '../extensions/extensions.dart';
+import '../../src/utils/utils.dart';
 
 class AppColors {
   AppColors._();
