@@ -8,35 +8,27 @@ part 'auth_event.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc() : super(AuthLoadInProgress());
-
-  @override
-  Stream<AuthState> mapEventToState(
-    AuthEvent event,
-  ) async* {
-    if (event is AuthLoaded) {
-      yield* _mapAuthLoadedToState(event);
-    } else if (event is LogoutEvent) {
-      yield* _mapLogoutToState(event);
-    }
+  AuthBloc() : super(AuthLoadInProgress()) {
+    on<AuthLoaded>(_mapAuthLoadedToState);
+    on<LogoutEvent>(_mapLogoutToState);
   }
 
-  Stream<AuthState> _mapAuthLoadedToState(AuthLoaded event) async* {
+  _mapAuthLoadedToState(AuthLoaded event, Emitter<AuthState> emit) async {
     try {
-      yield AuthLoadInProgress();
+      emit(AuthLoadInProgress());
       await Future.delayed(Duration(seconds: 2));
-      yield AuthLoadSuccess({});
+      emit(AuthLoadSuccess({}));
     } catch (e) {
-      yield AuthLoadFailure(e);
+      emit(AuthLoadFailure(e));
     }
   }
 
-  Stream<AuthState> _mapLogoutToState(LogoutEvent event) async* {
+  _mapLogoutToState(LogoutEvent event, Emitter<AuthState> emit) async {
     try {
       await Future.delayed(Duration(seconds: 1));
-      yield LogoutSuccess();
+      emit(LogoutSuccess());
     } catch (e) {
-      yield AuthLoadFailure(e);
+      emit(AuthLoadFailure(e));
     }
   }
 }

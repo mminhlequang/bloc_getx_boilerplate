@@ -1,9 +1,8 @@
 import 'package:dio/dio.dart';
-
-import '../../constants/constants.dart';
 import 'api.dart';
 import '../model/model.dart';
 import '../service/wifi_service.dart';
+import 'app_endpoint.dart';
 import 'client.dart';
 
 class AppApiImp extends AppApi {

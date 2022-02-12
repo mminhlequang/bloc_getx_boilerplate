@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:dio/native_imp.dart';
 import '../../constants/constants.dart';
 import '../../utils/utils.dart';
+import 'app_endpoint.dart';
 
 const String METHOD_GET = "GET";
 const String METHOD_POST = "POST";

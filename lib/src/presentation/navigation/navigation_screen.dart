@@ -31,11 +31,14 @@ class _NavigationScreenState extends State<NavigationScreen>
   }
 
   Widget _buildBody() {
-    return BlocConsumer<NavigationBloc, NavigationState>(listener: (_, state) {
-      log('listener: $state');
-    }, builder: (_, state) {
-      return buildUi(context: context, state: state);
-    });
+    return BlocConsumer<NavigationBloc, NavigationState>(
+        bloc: Get.find<NavigationBloc>(),
+        listener: (_, state) {
+          log('listener: $state');
+        },
+        builder: (_, state) {
+          return buildUi(context: context, state: state);
+        });
   }
 
   @override

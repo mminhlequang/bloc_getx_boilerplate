@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../bloc/base_bloc/base_bloc.dart';
 
@@ -8,25 +9,17 @@ part 'event.dart';
 part 'state.dart';
 
 class NavigationBloc extends BaseBloc<NavigationEvent, NavigationState> {
-  NavigationBloc() : super(NavigationLoadInProgress());
-
-  @override
-  Stream<NavigationState> mapEventToState(
-    NavigationEvent event,
-  ) async* {
-    if (event is NavigationLoaded) {
-      yield* _mapNavigationLoadedToState(event);
-    }
+  NavigationBloc() : super(NavigationLoadInProgress()) {
+    on<NavigationLoaded>(_mapNavigationLoadedToState);
   }
 
-  Stream<NavigationState> _mapNavigationLoadedToState(
-      NavigationLoaded event) async* {
+  _mapNavigationLoadedToState(NavigationLoaded event, Emitter<NavigationState> emit) async {
     try {
-      yield NavigationLoadInProgress();
+      emit(NavigationLoadInProgress());
       await Future.delayed(Duration(seconds: 2));
-      yield NavigationLoadSuccess();
+      emit(NavigationLoadSuccess());
     } catch (e) {
-      yield NavigationLoadFailure(e);
+      emit(NavigationLoadFailure(e));
     }
   }
 }

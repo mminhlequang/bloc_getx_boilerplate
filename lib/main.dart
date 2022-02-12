@@ -20,7 +20,7 @@ void main() async {
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await AppPrefs.initListener();
   _initialBlocs();
-  bloc.Bloc.observer = ThemeBloc();
+  bloc.BlocOverrides.runZoned((){}, blocObserver: ThemeBloc());
 
   runApp(const App());
 }
