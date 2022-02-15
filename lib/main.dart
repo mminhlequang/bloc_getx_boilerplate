@@ -1,9 +1,12 @@
+import 'dart:developer';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart' as bloc;
 import 'package:get/get.dart' as GetX;
 import 'package:get/get.dart';
+import 'package:overlay_support/overlay_support.dart';
 
 import 'src/presentation/presentation.dart';
 import 'src/bloc/bloc.dart';
@@ -20,9 +23,9 @@ void main() async {
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await AppPrefs.initListener();
   _initialBlocs();
-  bloc.BlocOverrides.runZoned((){}, blocObserver: ThemeBloc());
-
-  runApp(const App());
+  bloc.BlocOverrides.runZoned(() {
+    runApp(OverlaySupport(child: const App()));
+  }, blocObserver: _MyBlocObserver());
 }
 
 void _initialBlocs() {
@@ -58,22 +61,22 @@ class _AppState extends State<App> {
   }
 }
 
-class ThemeBloc extends bloc.BlocObserver {
+class _MyBlocObserver extends bloc.BlocObserver {
   @override
   Future<void> onEvent(bloc.Bloc bloc, Object? event) async {
     super.onEvent(bloc, event);
-    print('onEvent: $event');
+    log('[BlocObserver] onEvent: $event');
   }
 
   @override
   void onTransition(bloc.Bloc bloc, bloc.Transition transition) {
     super.onTransition(bloc, transition);
-    print('onTransition: $transition');
+    log('[BlocObserver] onTransition: $transition');
   }
 
   @override
   void onError(bloc.BlocBase bloc, Object error, StackTrace stackTrace) {
-    print('onError: $error');
+    log('[BlocObserver] onError: $error');
     super.onError(bloc, error, stackTrace);
   }
 }
