@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../extensions/extensions.dart';
+import 'constants.dart';
 
 class AppStyles {
   AppStyles._();
@@ -7,5 +7,5 @@ class AppStyles {
   static Gradient get gradient => LinearGradient(
       begin: Alignment.bottomRight,
       end: Alignment.topLeft,
-      colors: [HexColor.fromHex('#1C222C'), HexColor.fromHex('#343F5C')]);
+      colors: [AppColors.fromHex('#1C222C'), AppColors.fromHex('#343F5C')]);
 }

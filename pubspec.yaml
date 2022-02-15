@@ -34,10 +34,34 @@ dependencies:
   hive: ^2.0.5
   rxdart: ^0.27.3
   path_provider: ^2.0.9
-  responsive_builder: ^0.4.1
-  fluttertoast: ^8.0.8
+  responsive_builder: ^0.4.1 
   flutter_spinkit: ^5.1.0
   cached_network_image: ^3.2.0
+  flutter_svg: ^1.0.3
+  image_picker: ^0.8.4+6
+  image_cropper: ^1.4.1
+  flutter_keyboard_visibility: ^5.1.1
+  modal_bottom_sheet: ^2.0.0
+  overlay_support: ^1.2.1
+  flutter_staggered_animations: ^1.0.0
+
+dependency_overrides:
+  platform: ^3.1.0
+
+dev_dependencies: 
+  flutter_launcher_icons: ^0.9.2
+
+flutter_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path: "assets/images/png/logo_1024.png"
+
+jsonToDart: 
+  typeChecking: true  #default: undefined (Select from picker)
+  nullValueDataType: dynamic #default: dynamic
+  nullSafety: true #default: false
+  copyWithMethod: false #default: false
+  mergeArrayApproach: false #default: true 
 
 flutter:
   uses-material-design: true
