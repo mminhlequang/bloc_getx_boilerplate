@@ -8,10 +8,10 @@ class AppThemes {
         ? ThemeData.dark().copyWith()
         : ThemeData.light().copyWith(
             primaryColor: Colors.blue,
-            accentColor: Colors.teal,
             appBarTheme: ThemeData.light().appBarTheme.copyWith(
                   color: Colors.blue,
-                ));
+                ),
+          );
   }
 
   static TextTheme get textTheme => appTheme.textTheme;

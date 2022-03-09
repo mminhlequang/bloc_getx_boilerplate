@@ -1,12 +1,12 @@
 import '../resources.dart';
 
-class CommonRepository {
-  CommonRepository._();
+class CommonRepo {
+  CommonRepo._();
 
-  static CommonRepository? _instance;
+  static CommonRepo? _instance;
 
-  factory CommonRepository([AppApi? api]) {
-    if (_instance == null) _instance = CommonRepository._();
+  factory CommonRepo([AppApi? api]) {
+    if (_instance == null) _instance = CommonRepo._();
     _instance!._api = api ?? AppApiImp();
     return _instance!;
   }
