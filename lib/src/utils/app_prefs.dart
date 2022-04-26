@@ -41,6 +41,10 @@ class AppPrefs {
 
   static String? get themeModel => _box.get('themeModel');
 
+  static set languageCode(String? token) => _box.put('languageCode', token);
+
+  static String? get languageCode => _box.get('languageCode');
+
   //Example
   static set example(ExampleModel? data) {
     _box.put('example', jsonEncode(data ?? ""));

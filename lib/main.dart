@@ -6,7 +6,7 @@ import 'package:get/get.dart' as GetX;
 import 'package:get/get.dart';
 import 'package:overlay_support/overlay_support.dart';
 
-import 'src/base/bloc.dart'; 
+import 'src/base/bloc.dart';
 import 'src/translations/app_translations.dart';
 import 'src/constants/constants.dart';
 import 'src/routes/app_pages.dart';
@@ -29,7 +29,7 @@ void _initialBlocs() {
   Get.put(
     AuthBloc(),
     permanent: true,
-  ); 
+  );
 }
 
 class App extends StatefulWidget {
@@ -40,6 +40,21 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
+  Locale? _locale;
+  setLocale(Locale locale) {
+    setState(() {
+      _locale = locale;
+    });
+  }
+
+  @override
+  void didChangeDependencies() async {
+    setState(() {
+      this._locale = getLocale();
+    });
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
     return GetX.GetMaterialApp(
@@ -48,7 +63,9 @@ class _AppState extends State<App> {
       theme: AppThemes.appTheme,
       defaultTransition: GetX.Transition.fadeIn,
       getPages: AppPages.pages,
-      locale: Locale('vi', 'VN'),
+      locale: _locale,
+      supportedLocales: supportedlocale,
+      fallbackLocale: supportedlocale.first,
       translationsKeys: AppTranslation.translations,
     );
   }
