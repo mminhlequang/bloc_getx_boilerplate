@@ -1,29 +1,16 @@
 part of 'auth_bloc.dart';
 
-abstract class AuthState extends Equatable {
-  const AuthState();
+class AuthState {
+  AuthStateType stateType;
+  dynamic user;
 
-  @override
-  List<Object> get props => [];
+  AuthState({
+    this.stateType = AuthStateType.none,
+    this.user,
+  });
+
+  AuthState update({AuthStateType? stateType, dynamic user}) {
+    return AuthState(
+        stateType: stateType ?? this.stateType, user: user ?? this.user);
+  }
 }
-
-class AuthLoadInProgress extends AuthState {}
-
-class AuthLoadSuccess extends AuthState {
-  final dynamic user;
-
-  const AuthLoadSuccess(this.user);
-}
-
-class LogoutSuccess extends AuthState {}
-
-class AuthLoadFailure extends AuthState {
-  final dynamic error;
-
-  const AuthLoadFailure(this.error);
-
-  @override
-  List<Object> get props => [error];
-}
-
-enum AccountStatus { active, code_pending, susppend }

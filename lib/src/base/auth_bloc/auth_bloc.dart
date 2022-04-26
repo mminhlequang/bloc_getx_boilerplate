@@ -7,28 +7,26 @@ import 'package:meta/meta.dart';
 part 'auth_event.dart';
 part 'auth_state.dart';
 
+enum AuthStateType { none, logged, logged_out }
+
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc() : super(AuthLoadInProgress()) {
+  AuthBloc() : super(AuthState()) {
     on<AuthLoaded>(_mapAuthLoadedToState);
     on<LogoutEvent>(_mapLogoutToState);
   }
 
   _mapAuthLoadedToState(AuthLoaded event, Emitter<AuthState> emit) async {
     try {
-      emit(AuthLoadInProgress());
       await Future.delayed(Duration(seconds: 2));
-      emit(AuthLoadSuccess({}));
+      emit(AuthState(stateType: AuthStateType.logged, user: {}));
     } catch (e) {
-      emit(AuthLoadFailure(e));
+      emit(AuthState(stateType: AuthStateType.logged_out));
     }
   }
 
   _mapLogoutToState(LogoutEvent event, Emitter<AuthState> emit) async {
     try {
-      await Future.delayed(Duration(seconds: 1));
-      emit(LogoutSuccess());
-    } catch (e) {
-      emit(AuthLoadFailure(e));
-    }
+      emit(AuthState(stateType: AuthStateType.logged_out));
+    } catch (e) {}
   }
 }

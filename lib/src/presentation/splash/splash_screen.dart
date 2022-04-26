@@ -26,13 +26,13 @@ class _SplashScreenState extends State<SplashScreen> {
       bloc: Get.find<AuthBloc>(),
       listener: (context, state) {
         Future.delayed(const Duration(seconds: 1), () async {
-          if (state is AuthLoadSuccess) {
+          if (state.stateType == AuthStateType.logged) {
             print('Auth state user: ${state.user}');
             if (state.user != null) {
               Get.offAllNamed(Routes.NAVIGATION);
             } else
               Get.offAllNamed(Routes.LOGIN);
-          } else if (state is AuthLoadFailure) {
+          } else if (state.stateType == AuthStateType.logged_out) {
             Get.offAllNamed(Routes.LOGIN);
           }
         });

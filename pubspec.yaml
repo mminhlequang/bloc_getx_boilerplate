@@ -17,31 +17,31 @@ dependencies:
 
   # Notification
   flutter_local_notifications: ^9.4.0
-  firebase_messaging: ^11.2.8
+  firebase_messaging: ^11.2.13
 
   #SignIn social
-  firebase_core: ^1.13.1
-  firebase_auth: ^3.3.9
-  google_sign_in: ^5.2.4
-  flutter_facebook_auth: ^4.1.1
+  firebase_core: ^1.14.1
+  firebase_auth: ^3.3.14
+  google_sign_in: ^5.3.0
+  flutter_facebook_auth: ^4.2.1
   sign_in_with_apple: ^3.3.0
 
   #Network
-  dio: ^4.0.4
+  dio: ^4.0.6
   logger: ^1.1.0
-  connectivity_plus: ^2.2.1
+  connectivity_plus: ^2.3.0
 
-  hive: ^2.0.6
+  hive: ^2.1.0
   rxdart: ^0.27.3
   path_provider: ^2.0.9
   responsive_builder: ^0.4.2
   flutter_spinkit: ^5.1.0
   cached_network_image: ^3.2.0
   flutter_svg: ^1.0.3
-  image_picker: ^0.8.4+10
-  image_cropper: ^1.5.0
+  image_picker: ^0.8.5
+  image_cropper: ^1.5.1
   flutter_keyboard_visibility: ^5.2.0
-  modal_bottom_sheet: ^2.0.0
+  modal_bottom_sheet: ^2.0.1
   overlay_support: ^1.2.1
   flutter_staggered_animations: ^1.0.0
 
