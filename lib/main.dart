@@ -69,8 +69,7 @@ class _AppState extends State<App> {
       defaultTransition: GetX.Transition.fadeIn,
       getPages: AppPages.pages,
       locale: _locale,
-      supportedLocales: supportedlocale,
-      fallbackLocale: supportedlocale.first,
+      supportedLocales: supportedlocale, 
       translationsKeys: AppTranslation.translations,
     );
   }
