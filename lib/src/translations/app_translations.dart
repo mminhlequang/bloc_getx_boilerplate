@@ -1,10 +1,19 @@
 
+import 'package:get/get.dart';
+
+import '../../main.dart';
 import '../utils/utils.dart';
 import 'fr_fr_translation.dart';
 import 'en_us_translations.dart';
 import 'dart:ui';
 
 //===== INPUT IN MAIN FILE
+//
+// static void setLocale(BuildContext context, Locale newLocale) {
+//   _AppState state = context.findAncestorStateOfType<_AppState>()!;
+//   state.setLocale(newLocale);
+// }
+//
 // Locale? _locale;
 // setLocale(Locale locale) {
 //   setState(() {
@@ -33,6 +42,16 @@ List<Locale> supportedlocale = [
   Locale(ENGLISH, "US"),
   Locale(FRENCH, 'FR'),
 ];
+
+void setLocale(languageCode) {
+  if (supportedlocale.any((e) => e.languageCode == languageCode)) {
+    AppPrefs.languageCode = languageCode;
+    Get.locale =
+        supportedlocale.firstWhere((e) => e.languageCode == languageCode);
+    App.setLocale(Get.context!,
+        supportedlocale.firstWhere((e) => e.languageCode == languageCode));
+  }
+}
 
 Locale getLocale() {
   if (AppPrefs.languageCode != null) return _locale(AppPrefs.languageCode!);
