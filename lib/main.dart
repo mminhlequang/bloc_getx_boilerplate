@@ -2,7 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart' as bloc;
-import 'package:get/get.dart' as GetX;
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart' as getx;
 import 'package:get/get.dart';
 import 'package:overlay_support/overlay_support.dart';
 
@@ -21,7 +22,7 @@ void main() async {
   await AppPrefs.initListener();
   _initialBlocs();
   bloc.BlocOverrides.runZoned(() {
-    runApp(OverlaySupport(child: const App()));
+    runApp( const OverlaySupport(child:   App()));
   }, blocObserver: AppBlocObserver());
 }
 
@@ -55,22 +56,27 @@ class _AppState extends State<App> {
   @override
   void didChangeDependencies() async {
     setState(() {
-      this._locale = getLocale();
+      _locale = getLocale();
     });
     super.didChangeDependencies();
   }
 
   @override
   Widget build(BuildContext context) {
-    return GetX.GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: Routes.INITIAL,
-      theme: AppThemes.appTheme,
-      defaultTransition: GetX.Transition.fadeIn,
-      getPages: AppPages.pages,
-      locale: _locale,
-      supportedLocales: supportedlocale, 
-      translationsKeys: AppTranslation.translations,
-    );
+    return ScreenUtilInit(
+        designSize: const Size(1920, 1080),
+        minTextAdapt: true,
+        builder: (child) {
+          return getx.GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            initialRoute: Routes.INITIAL,
+            theme: AppThemes.appTheme,
+            defaultTransition: getx.Transition.fadeIn,
+            getPages: AppPages.pages,
+            locale: _locale,
+            supportedLocales: supportedlocale,
+            translationsKeys: AppTranslation.translations,
+          );
+        });
   }
 }

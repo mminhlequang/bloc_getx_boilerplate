@@ -1,4 +1,3 @@
-
 import 'package:get/get.dart';
 
 import '../../main.dart';
@@ -30,17 +29,17 @@ import 'dart:ui';
 // }
 
 //languages code
-const String ENGLISH = 'en';
-const String FRENCH = 'fr';
+const String english = 'en';
+const String french = 'fr';
 
 List languagelist = [
-  ENGLISH,
-  FRENCH,
+  english,
+  french,
 ];
 
 List<Locale> supportedlocale = [
-  Locale(ENGLISH, "US"),
-  Locale(FRENCH, 'FR'),
+  const Locale(english, "US"),
+  const Locale(french, 'FR'),
 ];
 
 void setLocale(languageCode) {
@@ -61,12 +60,12 @@ Locale getLocale() {
 
 Locale _locale(String languageCode) {
   switch (languageCode) {
-    case FRENCH:
-      return Locale(FRENCH, 'FR');
-    case ENGLISH:
-      return Locale(ENGLISH, 'US');
+    case french:
+      return const Locale(french, 'FR');
+    case english:
+      return const Locale(english, 'US');
     default:
-      return Locale(ENGLISH, 'US');
+      return const Locale(english, 'US');
   }
 }
 

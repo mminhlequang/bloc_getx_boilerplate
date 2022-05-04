@@ -17,14 +17,14 @@ dependencies:
   flutter_screenutil: ^5.5.1
 
   # Notification
-  flutter_local_notifications: ^9.4.0
-  firebase_messaging: ^11.2.13
+  flutter_local_notifications: ^9.5.0
+  firebase_messaging: ^11.3.0
 
   #SignIn social
-  firebase_core: ^1.14.1
-  firebase_auth: ^3.3.14
+  firebase_core: ^1.16.0
+  firebase_auth: ^3.3.17
   google_sign_in: ^5.3.0
-  flutter_facebook_auth: ^4.2.1
+  flutter_facebook_auth: ^4.3.0
   sign_in_with_apple: ^3.3.0
 
   #Network
@@ -40,7 +40,7 @@ dependencies:
   cached_network_image: ^3.2.0
   flutter_svg: ^1.0.3
   image_picker: ^0.8.5
-  image_cropper: ^1.5.1
+  image_cropper: ^2.0.0
   flutter_keyboard_visibility: ^5.2.0
   modal_bottom_sheet: ^2.0.1
   overlay_support: ^1.2.1
