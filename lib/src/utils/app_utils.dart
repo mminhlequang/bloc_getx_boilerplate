@@ -1,11 +1,11 @@
 import 'dart:io';
 import 'dart:typed_data';
-import 'dart:ui' as ui;
-import 'package:bloc_getx_boilerplate/src/constants/constants.dart';
+import 'dart:ui' as ui; 
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:overlay_support/overlay_support.dart';
+import '../constants/constants.dart';
 
 class AppUtils {
   AppUtils._();
