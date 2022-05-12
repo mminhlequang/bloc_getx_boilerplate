@@ -17,12 +17,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
-  await SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  await SystemChrome.setPreferredOrientations(DeviceOrientation.values);
   await AppPrefs.initListener();
   _initialBlocs();
   bloc.BlocOverrides.runZoned(() {
-    runApp( const OverlaySupport(child:   App()));
+    runApp(const OverlaySupport(child: App()));
   }, blocObserver: AppBlocObserver());
 }
 
@@ -63,8 +62,11 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-        designSize: const Size(1920, 1080),
+    return OrientationBuilder(builder: (context, orientation) {
+      return ScreenUtilInit(
+        designSize: orientation == Orientation.portrait
+            ? const Size(1080, 1920)
+            : const Size(1920, 1080),
         minTextAdapt: true,
         builder: (child) {
           return getx.GetMaterialApp(
@@ -77,6 +79,8 @@ class _AppState extends State<App> {
             supportedLocales: supportedlocale,
             translationsKeys: AppTranslation.translations,
           );
-        });
+        },
+      );
+    });
   }
 }

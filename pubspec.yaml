@@ -4,7 +4,7 @@ description: BLoC with GetX boilerplate flutter
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.13.0 <3.0.0"
+  sdk: ">=2.15.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -14,17 +14,17 @@ dependencies:
   get: ^4.6.1
   equatable: ^2.0.3
   flutter_bloc: ^8.0.1
-  flutter_screenutil: ^5.5.1
+  flutter_screenutil: ^5.5.2
 
   # Notification
-  flutter_local_notifications: ^9.5.0
+  flutter_local_notifications: ^9.5.2
   firebase_messaging: ^11.3.0
 
   #SignIn social
   firebase_core: ^1.16.0
   firebase_auth: ^3.3.17
-  google_sign_in: ^5.3.0
-  flutter_facebook_auth: ^4.3.0
+  google_sign_in: ^5.3.1
+  flutter_facebook_auth: ^4.3.4
   sign_in_with_apple: ^3.3.0
 
   #Network
@@ -34,13 +34,13 @@ dependencies:
 
   hive: ^2.1.0
   rxdart: ^0.27.3
-  path_provider: ^2.0.9
+  path_provider: ^2.0.10
   responsive_builder: ^0.4.2
   flutter_spinkit: ^5.1.0
   cached_network_image: ^3.2.0
   flutter_svg: ^1.0.3
-  image_picker: ^0.8.5
-  image_cropper: ^2.0.0
+  image_picker: ^0.8.5+2
+  image_cropper: ^2.0.2
   flutter_keyboard_visibility: ^5.2.0
   modal_bottom_sheet: ^2.0.1
   overlay_support: ^1.2.1
