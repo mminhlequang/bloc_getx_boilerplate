@@ -23,17 +23,17 @@ class AppPrefs {
     _box.delete('themeModel');
   }
 
-  static set themeModel(String? theme) => _box.put('themeModel', theme);
+  static set themeModel(String? value) => _box.put('themeModel', value);
 
   static String? get themeModel => _box.get('themeModel');
 
-  static set languageCode(String? token) => _box.put('languageCode', token);
+  static set languageCode(String? value) => _box.put('languageCode', value);
 
   static String? get languageCode => _box.get('languageCode');
 
   static String accessToken = 'accessToken';
   static String refreshToken = 'refreshToken';
-  static Future save(String key, String? token) => _box.put(key, token);
+  static Future save(String key, String? value) => _box.put(key, value);
 
   static dynamic getNormalToken() async {
     var result = _box.get(accessToken);
