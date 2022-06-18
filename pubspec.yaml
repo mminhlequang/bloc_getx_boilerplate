@@ -4,53 +4,53 @@ description: BLoC with GetX boilerplate flutter
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
+  sdk: ">=2.15.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
   #Core
-  get: ^4.6.3
+  get: ^4.6.5
   equatable: ^2.0.3
   flutter_bloc: ^8.0.1
-  flutter_screenutil: ^5.5.2
+  flutter_screenutil: ^5.5.3+2
 
   # Notification
-  flutter_local_notifications: ^9.5.3+1
-  firebase_messaging: ^11.4.0
+  flutter_local_notifications: ^9.6.1
+  firebase_messaging: ^11.4.2
 
   #SignIn social
-  firebase_core: ^1.17.0
-  firebase_auth: ^3.3.18
-  google_sign_in: ^5.3.1
-  flutter_facebook_auth: ^4.3.4
-  sign_in_with_apple: ^3.3.0
+  firebase_core: ^1.18.0
+  firebase_auth: ^3.3.20
+  google_sign_in: ^5.3.3
+  flutter_facebook_auth: ^4.3.4+2
+  sign_in_with_apple: ^4.0.0
 
   #Network
   dio: ^4.0.6
   logger: ^1.1.0
-  connectivity_plus: ^2.3.0
+  connectivity_plus: ^2.3.4
 
-  hive: ^2.1.0
-  rxdart: ^0.27.3
-  path_provider: ^2.0.10
+  hive: ^2.2.2
+  rxdart: ^0.27.4
+  path_provider: ^2.0.11
   responsive_builder: ^0.4.2
   flutter_spinkit: ^5.1.0
-  cached_network_image: ^3.2.0
-  flutter_svg: ^1.0.3
+  cached_network_image: ^3.2.1
+  flutter_svg: ^1.1.0
   image_picker: ^0.8.5+3
-  image_cropper: ^2.0.2
-  flutter_keyboard_visibility: ^5.2.0
+  image_cropper: ^2.0.3
+  flutter_keyboard_visibility: ^5.3.0
   modal_bottom_sheet: ^2.0.1
-  overlay_support: ^2.0.0
+  overlay_support: ^2.0.1
   flutter_staggered_animations: ^1.0.0
 
 dependency_overrides:
   platform: ^3.1.0
 
-dev_dependencies: 
-  flutter_launcher_icons: ^0.9.2
+dev_dependencies:
+  flutter_launcher_icons: ^0.9.3
   flutter_lints: ^2.0.1
 
 flutter_icons:
@@ -58,7 +58,7 @@ flutter_icons:
   ios: true
   image_path: "assets/images/png/logo_1024.png"
 
-jsonToDart: 
+jsonToDart:
   typeChecking: true  #default: undefined (Select from picker)
   nullValueDataType: dynamic #default: dynamic
   nullSafety: true #default: false
