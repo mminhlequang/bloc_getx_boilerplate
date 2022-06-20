@@ -1,4 +1,4 @@
-package com.mminh.bloc_getx_boilerplate
+package com.mminh.temp
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -34,7 +34,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.mminh.bloc_getx_boilerplate"
+        applicationId "com.mminh.temp"
         minSdkVersion 21
         targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()

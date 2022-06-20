@@ -68,7 +68,7 @@ class _AppState extends State<App> {
             ? const Size(1080, 1920)
             : const Size(1920, 1080),
         minTextAdapt: true,
-        builder: (child) {
+        builder: (_, child) {
           return getx.GetMaterialApp(
             debugShowCheckedModeBanner: false,
             initialRoute: Routes.INITIAL,
