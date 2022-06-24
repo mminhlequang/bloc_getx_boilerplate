@@ -9,7 +9,7 @@ class WidgetWelcome extends StatelessWidget {
     return Center(
       child: Text(
         'Welcome to boilerplate!',
-        style: AppTextStyles.normalBold,
+        style: AppTextStyles.instance.rubikBold,
       ),
     );
   }

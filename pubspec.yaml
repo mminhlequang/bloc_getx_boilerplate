@@ -91,3 +91,23 @@ flutter:
           weight: 200
         - asset: assets/fonts/roboto/Roboto-Light.ttf
           weight: 100
+  - family: Rubik
+      fonts:
+        - asset: assets/google_fonts/rubik/Rubik-Black.ttf
+          weight: 900
+        - asset: assets/google_fonts/rubik/Rubik-Black.ttf
+          weight: 800
+        - asset: assets/google_fonts/rubik/Rubik-Bold.ttf
+          weight: 700
+        - asset: assets/google_fonts/rubik/Rubik-Bold.ttf
+          weight: 600
+        - asset: assets/google_fonts/rubik/Rubik-Medium.ttf
+          weight: 500
+        - asset: assets/google_fonts/rubik/Rubik-Medium.ttf
+          weight: 400
+        - asset: assets/google_fonts/rubik/Rubik-Regular.ttf
+          weight: 300
+        - asset: assets/google_fonts/rubik/Rubik-Light.ttf
+          weight: 200
+        - asset: assets/google_fonts/rubik/Rubik-Light.ttf
+          weight: 100

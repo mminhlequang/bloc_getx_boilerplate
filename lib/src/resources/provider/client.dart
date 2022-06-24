@@ -14,14 +14,17 @@ const String METHOD_DELETE = "DELETE";
 class AppClients extends DioForNative {
   static AppClients? _instance;
 
-  factory AppClients({String baseUrl = AppEndpoint.BASE_URL, BaseOptions? options}) {
-    if (_instance == null) _instance = AppClients._(baseUrl: baseUrl, options: options);
+  factory AppClients(
+      {String baseUrl = AppEndpoint.BASE_URL, BaseOptions? options}) {
+    if (_instance == null)
+      _instance = AppClients._(baseUrl: baseUrl, options: options);
     if (options != null) _instance!.options = options;
     _instance!.options.baseUrl = baseUrl;
     return _instance!;
   }
 
-  AppClients._({String baseUrl = AppEndpoint.BASE_URL, BaseOptions? options}) : super(options) {
+  AppClients._({String baseUrl = AppEndpoint.BASE_URL, BaseOptions? options})
+      : super(options) {
     this.interceptors.add(InterceptorsWrapper(
           onRequest: _requestInterceptor,
           onResponse: _responseInterceptor,
@@ -30,8 +33,10 @@ class AppClients extends DioForNative {
     this.options.baseUrl = baseUrl;
   }
 
-  _requestInterceptor(RequestOptions options, RequestInterceptorHandler handler) async {
-    options.headers.addEntries([MapEntry('Authorization', AppPrefs.accessToken)]);
+  _requestInterceptor(
+      RequestOptions options, RequestInterceptorHandler handler) async {
+    options.headers.addEntries(
+        [MapEntry('Authorization', AppPrefs.instance.getNormalToken())]);
     log("[RequestInterceptor] [${options.method}] ${options.uri}:");
     log("Header: ${options.headers}");
     switch (options.method) {

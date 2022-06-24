@@ -18,7 +18,7 @@ void main() async {
   await Firebase.initializeApp();
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
   await SystemChrome.setPreferredOrientations(DeviceOrientation.values);
-  await AppPrefs.initListener();
+  await AppPrefs.instance.initListener();
   _initialBlocs();
   bloc.BlocOverrides.runZoned(() {
     runApp(const OverlaySupport(child: App()));
@@ -76,7 +76,6 @@ class _AppState extends State<App> {
             defaultTransition: getx.Transition.fadeIn,
             getPages: AppPages.pages,
             locale: _locale,
-            supportedLocales: supportedlocale,
             translationsKeys: AppTranslation.translations,
           );
         },

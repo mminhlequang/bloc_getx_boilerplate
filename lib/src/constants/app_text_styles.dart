@@ -2,36 +2,55 @@ import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
 
-class AppFontSizes {
-  static const double fontTextExtraBig = 24.0;
-  static const double fontTextBig = 20.0;
+class _AppFontSizes {
+  static const double fontTextTitle = 22.0;
+  static const double fontTextBig = 22.0;
   static const double fontText = 16.0;
   static const double fontTextSmall = 12.0;
   static const double fontExtraSmall = 8.0;
+  static const double fontTextExtraBig = 31;
+  static const double fontErrorText = 14;
 }
 
 class AppTextStyles {
-  static String get fontFamilyRoboto => 'Roboto';
+  AppTextStyles._();
 
-  ///Normal
-  static TextStyle get normal => TextStyle(
+  static final AppTextStyles _instance = AppTextStyles._();
+
+  static AppTextStyles get instance => _instance;
+
+  String get fontFamilyRubik => 'Rubik';
+
+  TextStyle get rubikMedium => TextStyle(
+      height: 1.15,
+      fontFamily: fontFamilyRubik,
+      color: AppColors.instance.text,
+      fontWeight: FontWeight.w500,
+      fontSize: _AppFontSizes.fontText);
+
+  TextStyle get rubikRegular =>
+      rubikMedium.copyWith(fontWeight: FontWeight.w300);
+
+  TextStyle get rubikBold => rubikMedium.copyWith(fontWeight: FontWeight.bold);
+
+  TextStyle get rubikBoldBlack =>
+      rubikMedium.copyWith(fontWeight: FontWeight.w900);
+
+  String get fontFamilyRoboto => 'Roboto';
+
+  TextStyle get rotoboMedium => TextStyle(
+      height: 1.15,
       fontFamily: fontFamilyRoboto,
-      color: AppColors.text,
-      fontWeight: FontWeight.normal,
-      fontSize: AppFontSizes.fontText);
+      color: AppColors.instance.text,
+      fontWeight: FontWeight.w500,
+      fontSize: _AppFontSizes.fontText);
 
-  static TextStyle get normalBold => normal.copyWith(fontWeight: FontWeight.bold);
+  TextStyle get rotoboRegular =>
+      rotoboMedium.copyWith(fontWeight: FontWeight.w300);
 
-  static TextStyle get normalBoldBlack => normal.copyWith(fontWeight: FontWeight.w900);
+  TextStyle get rotoboBold =>
+      rotoboMedium.copyWith(fontWeight: FontWeight.bold);
 
-  ///Small
-  static TextStyle get small => TextStyle(
-      fontFamily: fontFamilyRoboto,
-      color: AppColors.text,
-      fontWeight: FontWeight.normal,
-      fontSize: AppFontSizes.fontTextSmall);
-
-  static TextStyle get smallBold => normal.copyWith(fontWeight: FontWeight.bold);
-
-  static TextStyle get smallBoldBlack => normal.copyWith(fontWeight: FontWeight.w900);
+  TextStyle get rotoboBoldBlack =>
+      rotoboMedium.copyWith(fontWeight: FontWeight.w900);
 }

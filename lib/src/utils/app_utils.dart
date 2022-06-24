@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'dart:typed_data';
-import 'dart:ui' as ui; 
+import 'dart:ui' as ui;
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -35,13 +35,15 @@ class AppUtils {
                 alignment: Alignment.center,
                 children: [
                   Container(
-                    color: AppColors.appBackground,
+                    color: AppColors.instance.appBackground,
                     width: MediaQuery.of(context).size.width,
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 24),
                     child: Text(
                       message,
                       textAlign: TextAlign.center,
-                      style: AppTextStyles.normal.copyWith(color: AppColors.text, fontSize: 18),
+                      style: AppTextStyles.instance.rotoboMedium.copyWith(
+                          color: AppColors.instance.text, fontSize: 18),
                     ),
                   ),
                   Positioned(
@@ -51,14 +53,17 @@ class AppUtils {
                       width: Get.width * 1.75,
                       height: Get.width * 1.75,
                       decoration: BoxDecoration(
-                          gradient: RadialGradient(
-                              colors: [AppColors.fromHex('#271733'), AppColors.appBackground])),
+                          gradient: RadialGradient(colors: [
+                        AppColors.instance.fromHex('#271733'),
+                        AppColors.instance.appBackground
+                      ])),
                     ),
                   ),
                   Text(
                     message,
                     textAlign: TextAlign.center,
-                    style: AppTextStyles.normal.copyWith(color: AppColors.text, fontSize: 18),
+                    style: AppTextStyles.instance.rotoboMedium
+                        .copyWith(color: AppColors.instance.text, fontSize: 18),
                   )
                 ],
               ),
@@ -71,8 +76,11 @@ class AppUtils {
 
   static Future<Uint8List> getBytesFromAsset(String path, int width) async {
     ByteData data = await rootBundle.load(path);
-    ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(), targetWidth: width);
+    ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(),
+        targetWidth: width);
     ui.FrameInfo fi = await codec.getNextFrame();
-    return (await fi.image.toByteData(format: ui.ImageByteFormat.png))!.buffer.asUint8List();
+    return (await fi.image.toByteData(format: ui.ImageByteFormat.png))!
+        .buffer
+        .asUint8List();
   }
 }

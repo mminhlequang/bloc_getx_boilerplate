@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
@@ -8,9 +7,13 @@ import 'package:path_provider/path_provider.dart';
 class AppPrefs {
   AppPrefs._();
 
-  static late Box _box;
+  static final AppPrefs _instance = AppPrefs._();
 
-  static initListener() async {
+  static AppPrefs get instance => _instance;
+
+  late Box _box;
+
+  initListener() async {
     if (!kIsWeb) {
       Directory appDocDirectory = await getApplicationDocumentsDirectory();
       Hive..init(appDocDirectory.path);
@@ -18,25 +21,25 @@ class AppPrefs {
     _box = await Hive.openBox('AppPref');
   }
 
-  static void clear() {
+  void clear() {
     _box.delete('accessToken');
     _box.delete('themeModel');
   }
 
-  static set themeModel(String? value) => _box.put('themeModel', value);
+  set themeModel(String? value) => _box.put('themeModel', value);
 
-  static String? get themeModel => _box.get('themeModel');
+  String? get themeModel => _box.get('themeModel');
 
-  static set languageCode(String? value) => _box.put('languageCode', value);
+  set languageCode(String? value) => _box.put('languageCode', value);
 
-  static String? get languageCode => _box.get('languageCode');
+  String? get languageCode => _box.get('languageCode');
 
-  static String accessToken = 'accessToken';
-  static String refreshToken = 'refreshToken';
-  static Future save(String key, String? value) => _box.put(key, value);
+  final String _accessToken = 'accessToken';
+  final String _refreshToken = 'refreshToken';
+  Future save(String key, String? value) => _box.put(key, value);
 
-  static dynamic getNormalToken() async {
-    var result = _box.get(accessToken);
+  dynamic getNormalToken() async {
+    var result = _box.get(_accessToken);
     // if (result != null) {
     //   DateTime? expiryDate = Jwt.getExpiryDate(result.toString());
     //   if (expiryDate != null &&
